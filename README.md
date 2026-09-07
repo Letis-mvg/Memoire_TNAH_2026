@@ -7,8 +7,8 @@ Ce dépôt présente le mémoire réalisé dans le cadre de l’obtention du dip
 **Traitement automatisé d'un fonds d'archives numériques. Cas des dossiers d'exposition du Musée des Arts Décoratifs (MAD)**
 
 **Étudiante :** Léticia Mvogo  
-**Encadrant pédagogique :** Julien Fenech, École nationale des chartes / Archives nationales
- **Encadrante professionnelle :** Marie Dion, archiviste au Musée des Arts Décoratifs
+**Encadrant pédagogique :** Julien Fenech, École nationale des chartes / Archives nationales<br>
+**Encadrante professionnelle :** Marie Dion, archiviste au Musée des Arts Décoratifs
 
 ## Contenu du dépôt
 
