@@ -1,0 +1,101 @@
+\cleardoublepage
+\addcontentsline{toc}{chapter}{Annexes}
+\appendix % Des annexes : tableaux, figures, etc.
+
+\chapter{Livrables techniques}
+\label{annexe:livrables-scripts-python}
+
+Les scripts développés dans le cadre de ce travail sont disponibles dans le dépôt GitHub associé au mémoire. Ils sont présentés ci-dessous selon leur fonction dans le processus de traitement automatisé.
+
+\begin{itemize}[label=-]
+	\item \textbf{Script de configuration} :
+	\url{https://github.com/Letis-mvg/Memoire_TNAH_2026/blob/main/Scripts_Rendus/config.py}\\[1 cm]
+	
+	\item \textbf{Script de décompression des fichiers} :
+	\url{https://github.com/Letis-mvg/Memoire_TNAH_2026/blob/main/Scripts_Rendus/Script_Dezip.py}\\[1 cm]
+	
+	\item \textbf{Script de tri} :
+	\url{https://github.com/Letis-mvg/Memoire_TNAH_2026/blob/main/Scripts_Rendus/Tri_scories.py}\\[1 cm]
+	
+	\item \textbf{Script de transfert et rangement des fichiers vers l'arborescence cible} :
+	\url{https://github.com/Letis-mvg/Memoire_TNAH_2026/blob/main/Scripts_Rendus/Script_Arborescence.py}\\[1 cm]
+\end{itemize}
+
+\chapter[Organigramme MAD 2000]{Organigramme MAD 2000}
+\label{annexe:organigramme-2000}
+
+\includegraphics[width=\textwidth]{annexes/organigramme2000.png}
+
+\chapter[Organigramme MAD 2014 : Recrutement d'un archiviste]{Organigramme MAD 2014 : Recrutement d'un archiviste }
+\label{annexe:organogramme-2014}
+
+\includegraphics[width=\textwidth]{annexes/Rapport-activite-2014.png}
+
+
+\chapter[Modèle aux archivage MAD]{Les choix d'archivage possibles au regard du statut des archives institutionnelles du MAD}
+\label{annexe:choix-archivage}
+
+\includegraphics[width=\textwidth]{annexes/Archivage.png}
+
+\chapter[Cadre de classement des dossiers d'exposition]{Cadre de classement des dossiers d'exposition}
+\label{annexe:referentiel-dossiers-exposition}
+
+\includepdf[pages=-, scale=0.8, pagecommand={}]{annexes/Referentiel_EXPOS_ARBO_2024.pdf}
+
+\chapter[Feuille de route du projet d'automatisation]{Feuille de route du projet d'automatisation}
+\label{annexe:methodologie}
+
+\includepdf[pages=-, scale=0.8, pagecommand={}]{annexes/Methodologie.pdf}
+
+\chapter{Journal de tests}
+\label{annexe:journal-tests}
+
+Le but de ce journal est de répertorier les différents bugs que nous avons enregistré pendant l'expérimentation du prototype sur les dossiers d'exposition test.
+
+\renewcommand{\arraystretch}{1.4}
+\setlength{\tabcolsep}{5pt}
+
+\begin{longtable}{|p{0.10\textwidth}|p{0.22\textwidth}|p{0.25\textwidth}|p{0.25\textwidth}|p{0.13\textwidth}|}
+	\hline
+	\textbf{Tests} &
+	\textbf{Problèmes (bugs)} &
+	\textbf{Solutions techniques} &
+	\textbf{Impact archivistique} &
+	\textbf{Bilan} \\
+	\hline
+	
+	\textbf{Test 1} &
+	Problème de prise en compte de toutes les extensions des fichiers à décompresser &
+	Ajout des bibliothèques : \texttt{py7zr} (pour l'extension .7z) et \texttt{rarfile} (pour l'extension .rar) &
+	Identification des extensions en vue du traitement &
+	Fonctionne bien \\
+	\hline
+	
+	\textbf{Test 2} &
+	Problème dans la suite de la décompression &
+	Ajout de l'extension « .traite » au dossier original &
+	Accès au contenu réel pour le tri et le calcul d'empreinte &
+	Le script parvient à détecter les fichiers et à les décompresser. =) Fonctionne bien \\
+	\hline
+	
+	\textbf{Test 3} &
+	Persistance d'arborescence vide après le déplacement des données non pérennes dans le dossier des éliminables &
+	Identification des dossiers vides en amont. Création d'une fonction de nettoyage final : \texttt{def Nettoyage\_final(path)}. Mise en place d'un parcours récursif inversé (\texttt{topdown=False}) associé à la condition \texttt{os.listdir()} &
+	Respect de la structure organique tout en purgeant les branches devenues inutiles &
+	Nettoyage 100\% efficace : le vrac est résorbé et les fichiers vides sont archivés avec leur chemin respectif \\
+	\hline
+	
+	\textbf{Test 4} &
+	Problème de copie et de droit avec l'utilisation de \texttt{shutil.copy2} à cause du déplacement des fichiers de l'environnement Windows jusqu'à l'environnement Linux via WSL &
+	Mise en place d'un filet de sécurité. Au cas où l'algorithme rencontre un problème de droit d'accès, il bascule en \texttt{shutil.copyfile} &
+	Le script parvient toujours à récupérer les métadonnées propres aux fichiers &
+	Fonctionne bien \\
+	\hline
+	
+\end{longtable}
+
+
+\chapter[Documentation des outils de traitements]{Documentation du prototype de traitement}
+\label{annexe:documentation-scripts}
+
+\includepdf[pages=-, scale=0.8, pagecommand={}]{annexes/documentation_projet.pdf}
